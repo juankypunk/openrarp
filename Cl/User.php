@@ -117,7 +117,7 @@ class Cl_User
 			return true;
 		}else{
 				
-			$query = "INSERT INTO users (user_id, name, email, social_id, picture) VALUES (NULL, '$name', '$email', '$social_id', '$picture')";
+			$query = "INSERT INTO users (name, email, social_id, picture) VALUES ('$name', '$email', '$social_id', '$picture')";
 			if(pg_query($this->_con, $query));
 			$query = "SELECT user_id, name, email, created FROM users where email = '$email' and social_id = '$social_id' ";
 			$result = pg_query($this->_con, $query);
@@ -175,6 +175,8 @@ class Cl_User
 	{
 		session_unset();
 		session_destroy();
+		unset($_SESSION['oauth_token']);
+		unset($_SESSION['oauth_token_secret']);
 		header('Location: index.php');
 	}
 	
@@ -202,10 +204,9 @@ class Cl_User
 				$to = $email;
 				$subject = "Recuperación de contraseña";
 				$txt = "Su nueva clave: ".$password;
-				$headers = "From: admin@sierramar.es" . "\r\n" .
-						"CC: juanky.moral@sierramar.es";
-					
-				//mail($to,$subject,$txt,$headers);
+				$headers = "From: ". EMAIL_FROM . "\r\n" .
+						"CC: ". EMAIL_CC;
+				mail($to,$subject,$txt,$headers);
 				return true;
 			}
 		} else{

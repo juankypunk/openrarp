@@ -42,37 +42,36 @@ if(!$_SESSION['logged_in']){
     
 	<body class="claro">
 		<div dojoType="dijit.layout.BorderContainer" design="sidebar" gutters="true" liveSplitters="true" id="borderContainer">
-		<div dojoType="dijit.layout.ContentPane" splitter="false" region="left" style="width:150px;border:none;">
-			<img src="images/logo_sierramar.gif" alt="logo" />
-			<div id="estadisticas"></div>
-		</div>
-		<div dojoType="dijit.layout.ContentPane" splitter="false" region="top" style="border:none">
-			<div id="menubar" data-dojo-type="dijit.MenuBar">
-                                <div data-dojo-type="dijit.MenuBarItem" data-dojo-props="onClick:function(){gotolink('home.php');}">
-                                        Inicio
-                                </div>
-                                <div data-dojo-type="dijit.MenuBarItem" data-dojo-props="onClick:function(){gotolink('socios.php');}">
-                                        Socios 
-                                </div>
-                                <div data-dojo-type="dijit.MenuBarItem" data-dojo-props="onClick:function(){gotolink('agua.php');}">
-                                        Agua
-                                </div>
-                                <div data-dojo-type="dijit.MenuBarItem" data-dojo-props="onClick:function(){gotolink('cuotas.php');}">
-                                        Cuotas
-                                </div>
-                                <div data-dojo-type="dijit.MenuBarItem" data-dojo-props="onClick:function(){gotolink('remesas.php');}">
-                                        Remesas
-                                </div>
-				<div class="login" dojoType="dijit.form.DropDownButton" >
-					<span><?=$_SESSION['name']?> </span>
-					<div dojoType="dijit.Menu">
-		       	    		     	<div dojoType="dijit.MenuItem" data-dojo-props="onClick:function(){gotolink('logout.php');}">
-		                   			Salir 
+			<div dojoType="dijit.layout.ContentPane" splitter="false" region="left" style="width:150px;border:none;">
+				<img src="images/logo_sierramar.gif" alt="logo" />
+			</div>
+			<div dojoType="dijit.layout.ContentPane" splitter="false" region="top" style="border:none">
+				<div id="menubar" data-dojo-type="dijit.MenuBar">
+                                	<div data-dojo-type="dijit.MenuBarItem" data-dojo-props="onClick:function(){gotolink('home.php');}">
+                                        	Inicio
+	                                </div>
+        	                        <div data-dojo-type="dijit.MenuBarItem" data-dojo-props="onClick:function(){gotolink('socios.php');}">
+                	                        Socios 
+                        	        </div>
+                                	<div data-dojo-type="dijit.MenuBarItem" data-dojo-props="onClick:function(){gotolink('agua.php');}">
+                                        	Agua
+	                                </div>
+        	                        <div data-dojo-type="dijit.MenuBarItem" data-dojo-props="onClick:function(){gotolink('cuotas.php');}">
+                	                        Cuotas
+	                                </div>
+        	                        <div data-dojo-type="dijit.MenuBarItem" data-dojo-props="onClick:function(){gotolink('remesas.php');}">
+                	                        Remesas
+                        	        </div>
+					<div class="login" dojoType="dijit.form.DropDownButton" >
+						<span><?=$_SESSION['name']?> </span>
+						<div dojoType="dijit.Menu">
+			       	    		     	<div dojoType="dijit.MenuItem" data-dojo-props="onClick:function(){gotolink('logout.php');}">
+			                   			Salir 
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
 	</body>
 </html>

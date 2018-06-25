@@ -84,7 +84,7 @@ if ($client->getAccessToken()) {
 		<?php require_once 'templates/ads.php';?>
 		<div class="login-form">
 			<?php require_once 'templates/message.php';?>
-			<h1 class="text-center">Sierramar</h1>
+			<h1 class="text-center">Bienvenido</h1>
 			<div class="form-header">
  				<img src="images/logo_sierramar.gif" alt="logo" />
 			</div>
@@ -92,7 +92,7 @@ if ($client->getAccessToken()) {
 				<input name="email" id="email" type="email" class="form-control" placeholder="Email" autofocus> 
 				<input name="password" id="password" type="password" class="form-control" placeholder="Clave"> 
 				<button class="btn btn-block bt-login" type="submit" id="submit_btn" data-loading-text="Autentificando...">Entrar</button>
-				<h4 class="text-center login-txt-center">Alternativamente, puedes...</h4>
+				<h4 class="text-center login-txt-center">Alternativamente...</h4>
 				<a class="btn btn-default google" href="<?php echo $client->createAuthUrl();?>"> <i class="fa fa-google-plus modal-icons"></i>Entrar con Google</a>  
 			</form>
 			<div class="form-footer">

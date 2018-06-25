@@ -86,7 +86,7 @@ if ($client->getAccessToken()) {
 			<?php require_once 'templates/message.php';?>
 			<h1 class="text-center">Bienvenido</h1>
 			<div class="form-header">
- 				<img src="images/logo_sierramar.gif" alt="logo" />
+ 				<img src="images/openrarp_logo.png" alt="logo" />
 			</div>
 			<form id="login-form" method="post" class="form-signin" role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 				<input name="email" id="email" type="email" class="form-control" placeholder="Email" autofocus> 

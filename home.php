@@ -43,7 +43,7 @@ if(!$_SESSION['logged_in']){
 	<body class="claro">
 		<div dojoType="dijit.layout.BorderContainer" design="sidebar" gutters="true" liveSplitters="true" id="borderContainer">
 			<div dojoType="dijit.layout.ContentPane" splitter="false" region="left" style="width:150px;border:none;">
-				<img src="images/logo_sierramar.gif" alt="logo" />
+				<img src="images/openrarp_logo.png" alt="logo" />
 			</div>
 			<div dojoType="dijit.layout.ContentPane" splitter="false" region="top" style="border:none">
 				<div id="menubar" data-dojo-type="dijit.MenuBar">
@@ -70,6 +70,10 @@ if(!$_SESSION['logged_in']){
 							</div>
 						</div>
 					</div>
+				</div>
+				<div style="margin-top:50px;margin-left:100px">
+					<img src="images/erp-1.png" alt="logo" />
+					<h1>¡Bienvenido a openrarp!</h1>
 				</div>
 			</div>
 		</div>

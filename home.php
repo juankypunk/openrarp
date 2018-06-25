@@ -50,16 +50,16 @@ if(!$_SESSION['logged_in']){
                                 	<div data-dojo-type="dijit.MenuBarItem" data-dojo-props="onClick:function(){gotolink('home.php');}">
                                         	Inicio
 	                                </div>
-        	                        <div data-dojo-type="dijit.MenuBarItem" data-dojo-props="onClick:function(){gotolink('socios.php');}">
+        	                        <div data-dojo-type="dijit.MenuBarItem" data-dojo-props="onClick:function(){gotolink('intranet/socios.php');}">
                 	                        Socios 
                         	        </div>
-                                	<div data-dojo-type="dijit.MenuBarItem" data-dojo-props="onClick:function(){gotolink('agua.php');}">
+                                	<div data-dojo-type="dijit.MenuBarItem" data-dojo-props="onClick:function(){gotolink('intranet/agua.php');}">
                                         	Agua
 	                                </div>
-        	                        <div data-dojo-type="dijit.MenuBarItem" data-dojo-props="onClick:function(){gotolink('cuotas.php');}">
+        	                        <div data-dojo-type="dijit.MenuBarItem" data-dojo-props="onClick:function(){gotolink('intranet/cuotas.php');}">
                 	                        Cuotas
 	                                </div>
-        	                        <div data-dojo-type="dijit.MenuBarItem" data-dojo-props="onClick:function(){gotolink('remesas.php');}">
+        	                        <div data-dojo-type="dijit.MenuBarItem" data-dojo-props="onClick:function(){gotolink('intranet/remesas.php');}">
                 	                        Remesas
                         	        </div>
 					<div class="login" dojoType="dijit.form.DropDownButton" >

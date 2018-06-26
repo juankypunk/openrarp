@@ -1,5 +1,39 @@
 # openrarp
 <img src="images/openrarp_logo_large.png" width="150px" alt="openrarp logo"/>
 
-<h3>Open Residential Area Resource Planning</h3>
+## Open Residential Area Resource Planning
 A web application to manage the fees of the owners of a neighboring community. Reading of water meters, analysis of water consumption and billing. Historical of readings. Creation of remittances (SEPA direct debit files). CSV exports.
+
+## Previous requirements
+- Apache2 Web Server
+- PostgreSQL Server
+- PHP7 and PHP7 modules:
+  - libapache2-mod-php7.0
+  - php7.0-common
+  - php7.0-pgsql
+  - php7.0-json
+
+## HowTo Install
+Create the openrarp database:
+
+```sh
+$ su postgres
+$ createdb openrarp
+$ psql -e -d openrarp < openrarp.sql
+```
+
+Copy the openrarp directory into the DOCUMENT_ROOT
+
+Rename the file 'config-default.php' to 'config.php' and edit the file according to your needs
+
+Open a browser and enter the url: 
+http://localhost/openrarp
+
+User: you@yourdomain
+Passwd: openrarp
+
+## ToDo
+- Add new partner
+- Add new water meter
+- Setup dialog
+- Change user password

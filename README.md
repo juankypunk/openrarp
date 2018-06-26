@@ -29,12 +29,12 @@ Rename the file 'config-default.php' to 'config.php' and edit the file to suit y
 Open a browser and enter the following url: 
 http://localhost/openrarp
 
-User: you@yourdomain
+Email: you@yourdomain
 
 Passwd: openrarp
 
 ## ToDo
-- Add new partner
+- Add new neighbour
 - Add new water meter
 - Setup dialog
 - Change user password

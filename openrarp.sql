@@ -531,76 +531,12 @@ CREATE VIEW public.vista_socios_titulares AS
 
 ALTER TABLE public.vista_socios_titulares OWNER TO postgres;
 
---
--- Data for Name: agua; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.agua (id_parcela, fecha, l1, l2, m3, pm3, ult_modif, user_modif, averiado, notas, estado, domicilia_bco, num_recibo) FROM stdin;
-\.
-
-
---
--- Data for Name: contadores_riego; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.contadores_riego (id_contador, lugar) FROM stdin;
-\.
-
-
---
--- Data for Name: cuotas; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.cuotas (id_parcela, fecha, cuota, notas, dto, domicilia_bco, estado) FROM stdin;
-\.
-
 
 --
 -- Name: num_recibo_agua; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.num_recibo_agua', 1, false);
-
-
---
--- Data for Name: properties; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.properties (id_presentador, nombre_presentador, id_acreedor, nombre_acreedor, iban_acreedor, ref_identificativa, entidad_receptora, oficina_receptora, iva_agua) FROM stdin;
-\.
-
-
---
--- Data for Name: remesas_especiales; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.remesas_especiales (id_parcela, titular, bic, iban, importe, concepto) FROM stdin;
-\.
-
-
---
--- Data for Name: riego; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.riego (id_contador, fecha, l1, l2, m3, averiado, notas, estado) FROM stdin;
-\.
-
-
---
--- Data for Name: ruta_lectura; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.ruta_lectura (orden, id_parcela) FROM stdin;
-\.
-
-
---
--- Data for Name: socios; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.socios (id_parcela, titular, titular_cc_agua, cc_agua, titular_cc_cuota, cc_cuota, email, domicilio, localidad, telef1, telef2, telef3, cp, notas, bic_agua, bic_cuota, iban_agua, iban_cuota, email2, titular2) FROM stdin;
-\.
-
 
 --
 -- Name: user_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
@@ -614,7 +550,7 @@ SELECT pg_catalog.setval('public.user_seq', 1, true);
 --
 
 COPY public.users (user_id, name, email, password, social_id, picture, created) FROM stdin;
-1	admin	you@yourdomain.com	439d5eb8d783745acf89b86157c5c8f6	\N	\N	2018-06-26 12:54:32.097703
+1	admin	admin@myopenrarp.com	439d5eb8d783745acf89b86157c5c8f6	\N	\N	2018-06-26 12:54:32.097703
 \.
 
 

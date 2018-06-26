@@ -73,7 +73,7 @@ if(!$_SESSION['logged_in']){
 				</div>
 				<div style="margin-top:50px;margin-left:100px">
 					<img src="images/erp-1.png" alt="logo" />
-					<h1>¡Bienvenido a openrarp!</h1>
+					<h1>¡Bienvenido a Openrarp!</h1>
 				</div>
 			</div>
 			<div dojoType="dijit.layout.ContentPane" splitter="false" region="bottom">

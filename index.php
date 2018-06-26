@@ -7,6 +7,7 @@ require_once 'config.php';
 $user_obj = new Cl_User();
 
 /*******Google ******/
+/* 
 require_once 'Google/src/config.php';
 require_once 'Google/src/Google_Client.php';
 require_once 'Google/src/contrib/Google_PlusService.php';
@@ -37,7 +38,8 @@ if ($client->getAccessToken()) {
 	}catch (Exception $e) {
 		$error = $e->getMessage();
 	}
-}  
+} 
+ */
 /*******Google ******/
 ?>
 <?php 
@@ -92,9 +94,10 @@ if ($client->getAccessToken()) {
 				<input name="email" id="email" type="email" class="form-control" placeholder="Email" autofocus> 
 				<input name="password" id="password" type="password" class="form-control" placeholder="Clave"> 
 				<button class="btn btn-block bt-login" type="submit" id="submit_btn" data-loading-text="Autentificando...">Entrar</button>
+<!--
 				<h4 class="text-center login-txt-center">Alternativamente...</h4>
-				<a class="btn btn-default google" href="<?php echo $client->createAuthUrl();?>"> <i class="fa fa-google-plus modal-icons"></i>Entrar con Google</a>  
-			</form>
+				<a class="btn btn-default google" href="<?php //echo $client->createAuthUrl();?>"> <i class="fa fa-google-plus modal-icons"></i>Entrar con Google</a>  
+-->			</form>
 			<div class="form-footer">
 				<div class="row">
 					<div class="col-xs-6 col-sm-6 col-md-6">
@@ -104,8 +107,8 @@ if ($client->getAccessToken()) {
 					</div>
 					
 					<div class="col-xs-6 col-sm-6 col-md-6">
-						<i class="fa fa-check"></i>
-						<a href="register.php">Registrarse</a>
+						<!--<i class="fa fa-check"></i>-->
+						<!--<a href="register.php">Registrarse</a>-->
 					</div>
 				</div>
 			</div>

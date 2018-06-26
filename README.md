@@ -29,7 +29,7 @@ Rename the file 'config-default.php' to 'config.php' and edit the file to suit y
 Open a browser and enter the following url: 
 http://localhost/openrarp
 
-Email: you@yourdomain
+Email: admin@myopenrarp.com
 
 Passwd: openrarp
 

@@ -18,6 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Recuperar contraseña</title>
 
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -34,7 +35,7 @@
 	<div class="container">
 		<?php require_once 'templates/ads.php';?>
 		<div class="login-form">
-			<h1 class="text-center">OpenRARP</h1>
+			<h1 class="text-center">Restablecer clave</h1>
 			<div class="form-header">
  				<img src="images/openrarp_logo.png" alt="logo" />
 			</div>

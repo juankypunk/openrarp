@@ -84,7 +84,7 @@ if ($client->getAccessToken()) {
 		<?php require_once 'templates/ads.php';?>
 		<div class="login-form">
 			<?php require_once 'templates/message.php';?>
-			<h1 class="text-center">Bienvenido</h1>
+			<h1 class="text-center">Iniciar sesión</h1>
 			<div class="form-header">
  				<img src="images/openrarp_logo.png" alt="logo" />
 			</div>

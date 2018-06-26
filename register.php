@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Formulario de registro</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -42,7 +42,7 @@
 		<div class="login-form">
 			<?php require_once 'templates/message.php';?>
 			
-			<h1 class="text-center">OpenRARP</h1>
+			<h1 class="text-center">Registrar cuenta</h1>
 			<div class="form-header">
  				<img src="images/openrarp_logo.png" alt="logo" />
 			</div>

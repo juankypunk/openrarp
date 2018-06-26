@@ -24,12 +24,13 @@ $ psql -e -d openrarp < openrarp.sql
 
 Copy the openrarp directory into the DOCUMENT_ROOT
 
-Rename the file 'config-default.php' to 'config.php' and edit the file according to your needs
+Rename the file 'config-default.php' to 'config.php' and edit the file to suit your needs
 
-Open a browser and enter the url: 
+Open a browser and enter the following url: 
 http://localhost/openrarp
 
 User: you@yourdomain
+
 Passwd: openrarp
 
 ## ToDo

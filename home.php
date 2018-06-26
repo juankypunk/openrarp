@@ -76,6 +76,9 @@ if(!$_SESSION['logged_in']){
 					<h1>¡Bienvenido a openrarp!</h1>
 				</div>
 			</div>
+			<div dojoType="dijit.layout.ContentPane" splitter="false" region="bottom">
+				<div style="text-align:center;"><a href="https://github.com/juankymoral/openrarp" title="openrarp" target="_blank">Powered by OpenRARP</a></div>
+			</div>
 		</div>
 	</body>
 </html>

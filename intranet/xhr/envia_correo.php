@@ -13,8 +13,8 @@ $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
 // More headers
-$headers .= 'From: <admon@sierramar.es>' . "\r\n";
-$headers .= 'Cc: juanky.moral@sierramar.es' . "\r\n";
+$headers .= 'From: <admon@yourdomain>' . "\r\n";
+$headers .= 'Cc: you@yourdomain' . "\r\n";
 
 mail($to,$subject,$message,$headers);
 echo "Correo enviado con éxito";

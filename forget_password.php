@@ -34,9 +34,9 @@
 	<div class="container">
 		<?php require_once 'templates/ads.php';?>
 		<div class="login-form">
-			<h1 class="text-center">Sierramar</h1>
+			<h1 class="text-center">OpenRARP</h1>
 			<div class="form-header">
- 				<img src="images/logo_sierramar.gif" alt="logo" />
+ 				<img src="images/openrarp_logo.png" alt="logo" />
 			</div>
 			<form action="<?php echo $_SERVER['PHP_SELF']; ?>" id="forgetpassword-form" method="post"  class="form-register" role="form">
 				<div>

@@ -9,7 +9,7 @@ foreach($seleccion as $valor){
 $lista_parcelas=substr($lista_parcelas,0,-1);
 require("lib/CreaConexion.php");
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con la BD');
+$conexion->connect('openrarp') or die('Error al conectar con la BD');
 $query_delete="DELETE FROM remesas_especiales WHERE id_parcela IN ($lista_parcelas)";
 //echo "$query_delete";
 @$conexion->query($query_delete) or die('Error al eliminar registros');

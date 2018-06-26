@@ -20,7 +20,7 @@ if(!$orderby){
 }
 
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con esta BD');
+$conexion->connect('openrarp') or die('Error al conectar con esta BD');
 
 $query = "SELECT id_parcela,titular,bic,iban,to_char(importe,'999,999.00') as importe,concepto
 		FROM remesas_especiales $orderby";

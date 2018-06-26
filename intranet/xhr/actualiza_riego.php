@@ -8,7 +8,7 @@ if($id_contador){
 	// Creamos la conexión con la BD
 	require("lib/CreaConexion.php");
 	// Consultamos la BD
-	$conexion->connect('sierramar') or die('Error al conectar con la BD');
+	$conexion->connect('openrarp') or die('Error al conectar con la BD');
 	$query_actualizacion="UPDATE riego SET m3=$m3,notas='$notas',averiado='$averiado',estado='R' WHERE id_contador=$id_contador AND fecha=(SELECT MAX(fecha) FROM riego)";
 	@$conexion->query($query_actualizacion) or die('Error al actualizar el registro');
 	echo ">>> Última actualización: contador $id_contador, m3:$m3, notas:$notas";

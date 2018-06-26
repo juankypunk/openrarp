@@ -54,7 +54,7 @@ if(!$orderby){
 }
 
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con esta BD');
+$conexion->connect('openrarp') or die('Error al conectar con esta BD');
 
 $query = "SELECT va.id_parcela,va.averiado,va.titular,va.fecha,va.l1,va.l2,va.m3,va.pm3,va.importe,va.domiciliado,va.notas,va.estado,ea.avg,ea.stddev
 		FROM vista_agua va INNER JOIN estadistica_agua_parcela ea ON va.id_parcela=ea.id_parcela AND ea.trimestre=extract(quarter from va.fecha)

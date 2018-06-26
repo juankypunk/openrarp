@@ -1,20 +1,11 @@
 <?php
 session_start();
-/*
-	print "DATA RECEIVED:"; 
-	print "<ul>"; 
-	foreach($_REQUEST as $key => $var){
-		print "<li>".$key." = ".$var."</li>";
-	}
-	print "</ul>"; 
-*/
-
 $usuario=$_REQUEST['username'];
 $clave=$_REQUEST['passwd'];
 if($usuario and $clave){
 	include("lib/CreaConexion.php");
 	// Consultamos la BD
-	$conexion->connect('sierramar') or die('Error al conectar con la BD');
+	$conexion->connect('openrarp') or die('Error al conectar con la BD');
 	$query_login="SELECT login FROM socios WHERE login='$usuario' and passwd='$clave'";
 	//echo $query;
 	$id_result=@$conexion->query($query_login);

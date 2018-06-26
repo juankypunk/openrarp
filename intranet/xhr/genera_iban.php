@@ -3,7 +3,7 @@
 require("lib/CreaConexion.php");
 include("includes/funciones_iban.php");
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con la BD');
+$conexion->connect('openrarp') or die('Error al conectar con la BD');
 $query_socios="SELECT id_parcela,cc_agua,cc_cuota FROM socios";
 $id_result=@$conexion->query($query_socios) or die('Error al consultar socios');
 $num_filas=@$conexion->num_rows($id_result);

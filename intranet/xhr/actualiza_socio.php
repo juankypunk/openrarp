@@ -21,7 +21,7 @@ $notas=$_REQUEST['notas'];
 // Creamos la conexión con la BD
 require("lib/CreaConexion.php");
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con la BD');
+$conexion->connect('openrarp') or die('Error al conectar con la BD');
 $query_actualizacion="UPDATE socios SET titular='$titular',titular2='$titular2',domicilio='$domicilio',localidad='$localidad',cp='$cp',
 				telef1='$telef1',telef2='$telef2',telef3='$telef3',email='$email',email2='$email2',
 				titular_cc_agua='$titular_cc_agua',bic_agua='$bic_agua',iban_agua='$iban_agua',

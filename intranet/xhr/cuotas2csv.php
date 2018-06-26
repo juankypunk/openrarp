@@ -1,8 +1,4 @@
 <?
-//id_parcela;titular;fecha;l1;l2;m3;pm3;importe;domiciliado
-//001;MARIA EMILIA MOYA TORRES;09-03-2012;4626;4662;36;0.48;17.28;17.28
-//002;ALFONSO GUAITA MARTORELL;09-03-2012;5951;5951;0;0.48;0.00;0
-
 // Creamos la conexión con la BD
 require("lib/CreaConexion.php");
 $fecha_cuota=$_REQUEST['fecha'];
@@ -25,7 +21,7 @@ if($fecha_cuota){
 	$fecha_cuota="(SELECT MAX(fecha) FROM cuotas)";
 }
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con esta BD');
+$conexion->connect('openrarp') or die('Error al conectar con esta BD');
 
 $query = "SELECT id_parcela,titular,fecha,cuota,domiciliado
 		FROM vista_cuotas WHERE fecha=$fecha_cuota $condicion ORDER BY id_parcela";

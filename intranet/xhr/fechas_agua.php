@@ -2,7 +2,7 @@
 // Creamos la conexión con la BD
 require("lib/CreaConexion.php");
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con la BD');
+$conexion->connect('openrarp') or die('Error al conectar con la BD');
 //$query="SELECT distinct(corresponsal) FROM com_escritas WHERE nis='$nis'";
 $query = "SELECT DISTINCT fecha FROM agua ORDER BY fecha DESC;";
 $id_result=@$conexion->query($query);

@@ -1,5 +1,4 @@
 <?
-//require_once('../includes/autentica.php');
 $seleccion=$_REQUEST['seleccion'];
 $seleccion=explode(",",$seleccion);
 foreach($seleccion as $valor){
@@ -8,7 +7,7 @@ foreach($seleccion as $valor){
 $lista_parcelas=substr($lista_parcelas,0,-1);
 require("lib/CreaConexion.php");
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con la BD');
+$conexion->connect('openrarp') or die('Error al conectar con la BD');
 $query_email="SELECT email FROM socios WHERE email IS NOT NULL AND email<>'' AND id_parcela IN ($lista_parcelas)";
 //echo $query_email;
 $id_result=@$conexion->query($query_email) or die('Error al consultar email socios');

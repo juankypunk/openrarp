@@ -3,7 +3,7 @@
 require("lib/CreaConexion.php");
 $fecha_lectura=$_REQUEST['fecha_lectura'];
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con la BD');
+$conexion->connect('openrarp') or die('Error al conectar con la BD');
 $query_insert_agua="INSERT INTO agua (id_parcela,fecha,l1,pm3,averiado,notas,domicilia_bco) 
 		SELECT id_parcela,'$fecha_lectura',l2,pm3,averiado,notas,domicilia_bco FROM agua WHERE fecha=(SELECT MAX(fecha) FROM agua)";
 $query_upd_agua="UPDATE agua SET estado='C' WHERE estado='R'";

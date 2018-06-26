@@ -16,7 +16,7 @@ if($id_parcela){
 	// Creamos la conexión con la BD
 	require("lib/CreaConexion.php");
 	// Consultamos la BD
-	$conexion->connect('sierramar') or die('Error al conectar con la BD');
+	$conexion->connect('openrarp') or die('Error al conectar con la BD');
 	$query_actualizacion="UPDATE agua SET l2=$l2,m3=$m3,notas='$notas',averiado='$averiado',estado='R' WHERE id_parcela='$id_parcela' AND fecha=(SELECT MAX(fecha) FROM agua)";
 	@$conexion->query($query_actualizacion) or die('Error al actualizar el registro');
 	echo ">>> Última actualización: parcela $id_parcela, l2:$l2, m3:$m3, notas:$notas";

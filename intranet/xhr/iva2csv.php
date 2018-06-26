@@ -1,8 +1,4 @@
 <?
-//id_parcela;titular;fecha;l1;l2;m3;pm3;importe;domiciliado
-//001;MARIA EMILIA MOYA TORRES;09-03-2012;4626;4662;36;0.48;17.28;17.28
-//002;ALFONSO GUAITA MARTORELL;09-03-2012;5951;5951;0;0.48;0.00;0
-
 // Creamos la conexión con la BD
 require("lib/CreaConexion.php");
 $fecha_lectura=$_REQUEST['fecha'];
@@ -12,7 +8,7 @@ if($fecha_lectura){
 	$fecha_lectura="(SELECT MAX(fecha) FROM agua)";
 }
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con esta BD');
+$conexion->connect('openrarp') or die('Error al conectar con esta BD');
 
 $query = "SELECT num_recibo,id_parcela,titular,fecha,subtotal,iva_repercutido,total
 		FROM vista_agua_iva WHERE fecha=$fecha_lectura ORDER BY id_parcela";

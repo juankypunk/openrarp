@@ -22,7 +22,7 @@ if(!$orderby){
 }
 
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con la BD');
+$conexion->connect('openrarp') or die('Error al conectar con la BD');
 
 $query = "SELECT id_parcela,titular,titular2,domicilio,localidad,cp,telef1,telef2,email
 		FROM socios $orderby";

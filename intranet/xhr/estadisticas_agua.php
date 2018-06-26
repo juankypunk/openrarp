@@ -9,7 +9,7 @@ if($fecha){
 }
 
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con la BD');
+$conexion->connect('openrarp') or die('Error al conectar con la BD');
 
 $query = "SELECT fecha,m3,max,avg,stddev,importe,domiciliado
 		FROM estadistica_agua WHERE fecha=$fecha";

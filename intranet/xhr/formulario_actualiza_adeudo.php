@@ -1,9 +1,8 @@
 <?
-//require_once('../includes/autentica.php');
 require("lib/CreaConexion.php");
 $id_parcela=$_REQUEST['id_parcela'];
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con la BD');
+$conexion->connect('openrarp') or die('Error al conectar con la BD');
 $query_adeudo="SELECT * FROM remesas_especiales WHERE id_parcela='$id_parcela'";
 $id_result=@$conexion->query($query_adeudo) or die('Error al consultar adeudo');
 $adeudo=@$conexion->fetch_array($id_result,0);

@@ -1,7 +1,7 @@
 <?php
 // Creamos la conexión con la BD
 require("lib/CreaConexion.php");
-$conexion->connect('sierramar') or die('Error al conectar con la BD');
+$conexion->connect('openrarp') or die('Error al conectar con la BD');
 $query_properties="SELECT * FROM properties";
 $id_result=@$conexion->query($query_properties) or die('Error al consultar propiedades');
 $properties=@$conexion->fetch_array($id_result,0);
@@ -24,8 +24,6 @@ function getStamp(){
 function getFechaTouch(){
    return strval(date("Y").date("m").date("d"));
 }
-//2014051510135255560
-//echo getStamp() . '<br>';
 $cont_lineas=0;
 touch('../remesas/remesa_agua_sepa.dat');
 
@@ -59,7 +57,7 @@ $R2=$C1.$C2.$C3.$C4.$C5.$C6.$C7.$C8.$C9.$C10.$C11.$C12."\r\n";
 
 //registro 1º individual obligatorio
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con la BD');
+$conexion->connect('openrarp') or die('Error al conectar con la BD');
 $query="SELECT id_parcela,titular_cc,cc,to_char(fecha,'DD-MM-YY') as fecha,
 	to_char(l1,'999,999.99') as l1,to_char(l2,'999,999.99') as l2,bic,iban,
 	to_char(m3,'999,999.99') as m3,to_char(pm3,'0.999') as pm3,to_char(importe,'999,999.00') as importe_f,importe 
@@ -102,7 +100,7 @@ while ($i < $num_filas) {
 	$m3=$fila['m3'];
 	$pm3=$fila['pm3'];
 	
-	$concepto="CONSUMO DE AGUA: Lect. ant.: $l1 m3 Lect. act.: $l2 m3 Total m3: $m3 Precio m3: 0.55 EUR + 10% IVA"; 
+	$concepto="CONSUMO DE AGUA: Lect. ant.: $l1 m3 Lect. act.: $l2 m3 Total m3: $m3 Precio m3: $pm3 EUR + 10% IVA"; 
 	$C22=str_pad($concepto,140," ",STR_PAD_RIGHT);
 	$C23=str_pad(" ",19," ",STR_PAD_RIGHT);
 	$R3.=$C1.$C2.$C3.$C4.$C5.$C6.$C7.$C8.$C9.$C10.$C11.$C12C18.$C19.$C20.$C21.$C22.$C23."\r\n";

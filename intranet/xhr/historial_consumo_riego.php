@@ -1,9 +1,8 @@
 <?
-//require_once('../includes/autentica.php');
 require("lib/CreaConexion.php");
 $id_contador=$_REQUEST['id_contador'];
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con la BD');
+$conexion->connect('openrarp') or die('Error al conectar con la BD');
 // historia del consumo del socio
 $query_consumo="SELECT fecha,l2,m3,notas FROM riego WHERE id_contador='$id_contador' AND fecha < (SELECT MAX(fecha) FROM riego) ORDER BY fecha";
 $id_result_consumo=@$conexion->query($query_consumo) or die('Error al consultar historia del consumo');

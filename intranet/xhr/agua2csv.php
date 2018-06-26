@@ -1,8 +1,4 @@
 <?
-//id_parcela;titular;fecha;l1;l2;m3;pm3;importe;domiciliado
-//001;MARIA EMILIA MOYA TORRES;09-03-2012;4626;4662;36;0.48;17.28;17.28
-//002;ALFONSO GUAITA MARTORELL;09-03-2012;5951;5951;0;0.48;0.00;0
-
 // Creamos la conexión con la BD
 require("lib/CreaConexion.php");
 $fecha_lectura=$_REQUEST['fecha'];
@@ -34,7 +30,7 @@ if($fecha_lectura){
 	$fecha_lectura="(SELECT MAX(fecha) FROM agua)";
 }
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con esta BD');
+$conexion->connect('openrarp') or die('Error al conectar con esta BD');
 
 $query = "SELECT va.id_parcela,va.averiado,va.titular,va.fecha,va.l1,va.l2,va.m3,va.pm3,va.importe,va.domiciliado,va.notas,va.estado,ea.avg,ea.stddev
 		FROM vista_agua va INNER JOIN estadistica_agua_parcela ea ON va.id_parcela=ea.id_parcela AND ea.trimestre=extract(quarter from va.fecha)

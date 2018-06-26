@@ -9,7 +9,7 @@ if($fecha){
 // Creamos la conexión con la BD
 require("lib/CreaConexion.php");
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con la BD');
+$conexion->connect('openrarp') or die('Error al conectar con la BD');
 $query_estadistica="SELECT fecha,cuota,domiciliado
 			FROM estadistica_cuotas
 			WHERE fecha=$fecha";

@@ -18,7 +18,7 @@ if($fecha_lectura){
 	$fecha_lectura="(SELECT MAX(fecha) FROM riego)";
 }
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con esta BD');
+$conexion->connect('openrarp') or die('Error al conectar con esta BD');
 
 $query = "SELECT r.id_contador,r.averiado,c.lugar,r.fecha,r.l1,r.l2,r.m3
 		FROM riego r INNER JOIN contadores_riego c ON r.id_contador=c.id_contador 

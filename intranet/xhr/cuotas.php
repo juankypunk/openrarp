@@ -37,7 +37,7 @@ if(!$orderby){
 }
 
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con esta BD');
+$conexion->connect('openrarp') or die('Error al conectar con esta BD');
 
 $query = "SELECT id_parcela,titular,fecha,cuota,dto,to_char(domiciliado,'999,999.00') as domiciliado,estado
 		FROM vista_cuotas WHERE fecha=$fecha $condicion $orderby";

@@ -1,9 +1,8 @@
 <?
-//require_once('../includes/autentica.php');
 require("lib/CreaConexion.php");
 $id_parcela=$_REQUEST['id_parcela'];
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con la BD');
+$conexion->connect('openrarp') or die('Error al conectar con la BD');
 // historia del consumo del socio
 $query_cuotas="SELECT fecha,titular,cuota FROM vista_cuotas WHERE id_parcela='$id_parcela' ORDER BY fecha";
 $id_result=@$conexion->query($query_cuotas) or die('Error al consultar historia de cuotas');

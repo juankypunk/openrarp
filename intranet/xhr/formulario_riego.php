@@ -1,5 +1,4 @@
 <?
-//require_once('../includes/autentica.php');
 require("lib/CreaConexion.php");
 $id_contador=$_REQUEST['id_contador'];
 ?>
@@ -11,7 +10,7 @@ $id_contador=$_REQUEST['id_contador'];
 
 <?
 // Lectura actual
-$conexion->connect('sierramar') or die('Error al conectar con la BD');
+$conexion->connect('openrarp') or die('Error al conectar con la BD');
 $query_lectura_actual="SELECT m3,averiado,notas FROM riego WHERE id_contador='$id_contador' AND fecha=(SELECT MAX(fecha) FROM riego)";
 $id_result_lectura_actual=@$conexion->query($query_lectura_actual) or die('Error al consultar historia del consumo');
 $fila_lectura=@$conexion->fetch_array($id_result_lectura_actual,0);

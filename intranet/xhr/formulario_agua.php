@@ -1,5 +1,4 @@
 <?
-//require_once('../includes/autentica.php');
 require("lib/CreaConexion.php");
 $id_parcela=$_REQUEST['id_parcela'];
 ?>
@@ -10,7 +9,7 @@ $id_parcela=$_REQUEST['id_parcela'];
 
 <?
 // Lectura actual
-$conexion->connect('sierramar') or die('Error al conectar con la BD');
+$conexion->connect('openrarp') or die('Error al conectar con la BD');
 $query_lectura_actual="SELECT l2,m3,averiado,notas FROM agua WHERE id_parcela='$id_parcela' AND fecha=(SELECT MAX(fecha) FROM agua)";
 $id_result_lectura_actual=@$conexion->query($query_lectura_actual) or die('Error al consultar historia del consumo');
 $fila_lectura=@$conexion->fetch_array($id_result_lectura_actual,0);

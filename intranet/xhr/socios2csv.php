@@ -2,7 +2,7 @@
 // Creamos la conexión con la BD
 require("lib/CreaConexion.php");
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con esta BD');
+$conexion->connect('openrarp') or die('Error al conectar con esta BD');
 
 $query = "SELECT id_parcela,titular,titular2,titular_cc_agua,cc_agua,titular_cc_cuota,cc_cuota,email,email2,domicilio,localidad,telef1,telef2,telef3,cp,
 		replace(notas,E'\n',' ') AS notas

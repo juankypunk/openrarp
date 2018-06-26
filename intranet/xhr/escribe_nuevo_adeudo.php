@@ -10,7 +10,7 @@ require("lib/CreaConexion.php");
 
 if($id_parcela && $titular && $bic && $iban && $importe && $concepto){
 	// Consultamos la BD
-	$conexion->connect('sierramar') or die('Error al conectar con la BD');
+	$conexion->connect('openrarp') or die('Error al conectar con la BD');
 	$query_insert="INSERT INTO remesas_especiales 
 		(id_parcela,titular,bic,iban,importe,concepto) 
 		VALUES ('$id_parcela','$titular','$bic','$iban',$importe,'$concepto')";

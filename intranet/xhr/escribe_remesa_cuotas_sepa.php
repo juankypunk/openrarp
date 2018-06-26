@@ -1,7 +1,7 @@
 <?php
 // Creamos la conexión con la BD
 require("lib/CreaConexion.php");
-$conexion->connect('sierramar') or die('Error al conectar con la BD');
+$conexion->connect('openrarp') or die('Error al conectar con la BD');
 $query_properties="SELECT * FROM properties";
 $id_result=@$conexion->query($query_properties) or die('Error al consultar propiedades');
 $properties=@$conexion->fetch_array($id_result,0);
@@ -60,7 +60,7 @@ $R2=$C1.$C2.$C3.$C4.$C5.$C6.$C7.$C8.$C9.$C10.$C11.$C12."\r\n";
 
 //registros 1º individual obligatorio
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con la BD');
+$conexion->connect('openrarp') or die('Error al conectar con la BD');
 $query="SELECT id_parcela,titular_cc,iban,bic,to_char(fecha,'DD-MM-YY') as fecha,to_char(cuota,'999,999.00') as cuota_f,cuota,to_char(domiciliado,'999,999.00') as domiciliado_f,domiciliado,dto
 		from vista_cuotas where fecha=(SELECT MAX(fecha) FROM cuotas) AND cuota > 0 AND domiciliado > 0";
 //echo $query;

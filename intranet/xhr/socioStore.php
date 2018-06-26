@@ -1,10 +1,8 @@
 <?
 $cadena=$_REQUEST['name'];
-//eliminamos el '*'
-//$cadena=substr($cadena,0,-1);
 require("lib/CreaConexion.php");
 // Consultamos la BD
-$conexion->connect('sierramar') or die('Error al conectar con la BD');
+$conexion->connect('openrarp') or die('Error al conectar con la BD');
 $query="SELECT id_parcela, titular
 		FROM vista_socios_titulares
 		WHERE titular ILIKE '%$cadena%'";

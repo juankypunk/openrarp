@@ -1,9 +1,8 @@
 <?
-//require_once("../includes/autentica.php");
 require("lib/CreaConexion.php");
 $id_parcela=$_REQUEST["id_parcela"];
 // Consultamos la BD
-$conexion->connect("sierramar") or die("Error al conectar con la BD");
+$conexion->connect("openrarp") or die("Error al conectar con la BD");
 // datos del socio
 $query_socio="SELECT titular,titular2,domicilio,localidad,cp,telef1,telef2,telef3,email,email2,titular_cc_agua,bic_agua,iban_agua,titular_cc_cuota,bic_cuota,iban_cuota,notas FROM socios WHERE id_parcela='$id_parcela'";
 $id_result_socio=@$conexion->query($query_socio) or die("Error al consultar datos del socio");

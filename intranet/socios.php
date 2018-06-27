@@ -9,7 +9,7 @@ if(!$_SESSION['logged_in']){
 <html dir="ltr">
 	<head>
 		<meta charset="utf-8">
-    		<title>OpenRARP</title>
+    		<title>Openrarp</title>
 		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/resources/dojo.css">
 		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/claro/claro.css">
 		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/grid/resources/Grid.css">
@@ -20,6 +20,8 @@ if(!$_SESSION['logged_in']){
 			.dojoxGrid table { margin: 0;font-size: 80%;}
 			.login {
 				float:right;
+				padding-right:.5em;
+				margin:0;
 			}
 			.logo {
 				float:left;

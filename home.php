@@ -14,6 +14,8 @@ if(!$_SESSION['logged_in']){
 			#borderContainer { width: 100%; height: 100%; }
 			.login {
 				float:right;
+				padding-right:.5em;
+				margin:0;
 			}
 			.logo {
 				float:left;
@@ -72,7 +74,7 @@ if(!$_SESSION['logged_in']){
 					</div>
 				</div>
 				<div style="margin-top:50px;margin-left:100px">
-					<img src="images/erp-1.png" alt="logo" />
+					<img src="images/erp-1.png" width="350px" alt="logo" />
 					<h1>¡Bienvenido a Openrarp!</h1>
 				</div>
 			</div>

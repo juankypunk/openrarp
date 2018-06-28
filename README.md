@@ -16,7 +16,7 @@ A web application to manage the payment of fees in a neighborhood community. Rea
 ## HowTo Install
 
 ### Configure PHP
-Locate your apache php.ini and configure your PHP to obey short open tags like this: '<?' 
+Locate your apache php.ini and configure your PHP to obey 'short open tags' style (<?) 
 ```sh
 short_open_tag = On
 ```

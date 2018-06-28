@@ -35,7 +35,8 @@ $ psql -e -d openrarp < openrarp.sql
 
 Copy the openrarp directory into the DOCUMENT_ROOT
 
-Rename the file 'config-default.php' to 'config.php' and edit the file to suit your needs
+Rename the file 'config-default.php' to 'config.php' and edit the file to suit your needs 
+(depending on how you have configured postgres you will need to edit this file)
 
 Open a browser and enter the following url: 
 http://localhost/openrarp

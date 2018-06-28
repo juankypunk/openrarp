@@ -14,7 +14,16 @@ A web application to manage the payment of fees in a neighborhood community. Rea
   - php7.0-json
 
 ## HowTo Install
-Create the openrarp database:
+
+###Configure PHP
+Locate your apache php.ini and configure your PHP to obey short open tags like this: '<?' 
+short_open_tag = On
+
+Include the path of your openrarp directory so that PHP can locate the libraries:
+include_path = ".:/path_to_your_openrarp_directory:/usr/share/php"
+
+
+###Create the openrarp database:
 
 ```sh
 $ su postgres

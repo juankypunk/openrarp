@@ -40,10 +40,11 @@ Rename the file 'config-default.php' to 'config.php' and edit the file to suit y
 Open a browser and enter the following url: 
 http://localhost/openrarp
 
+Your initial credentials:
+```
 Email: admin@myopenrarp.com
-
 Passwd: openrarp
-
+```
 ## ToDo
 - Add new neighbour
 - Add new water meter

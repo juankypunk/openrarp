@@ -2,7 +2,7 @@
 <img src="images/openrarp_logo_large.png" width="150px" alt="openrarp logo"/>
 
 ## Open Residential Area Resource Planning
-A web application to manage the payment of fees in a neighborhood community. Reading of water meters, statistics of water consumption and billing. Historical of readings. Padel reservetion. Creation of remittances (SEPA direct debit files). CSV exports. Spanish language.
+A web application to manage the payment of fees in a neighborhood community. Reading of water meters, statistics of water consumption and billing. Historical of readings. Paddel reservations. Creation of remittances (SEPA direct debit files). CSV exports. Spanish language.
 
 ## Previous requirements
 - Apache2 Web Server

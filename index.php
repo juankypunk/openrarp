@@ -47,7 +47,7 @@ if ($client->getAccessToken()) {
 		try {
 			$data = $user_obj->login( $_POST );
 			if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']){
-				header('Location: home.php');
+				header('Location: movil/index.php');
 			}
 		} catch (Exception $e) {
 			$error = $e->getMessage();
@@ -55,7 +55,7 @@ if ($client->getAccessToken()) {
 	}
 	//print_r($_SESSION);
 	if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']){
-		header('Location: home.php');
+		header('Location: movil/index.php');
 	}
 ?>
 <!DOCTYPE html>

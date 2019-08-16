@@ -2,3 +2,5 @@
 config.php
 intranet/remesas/*
 intranet/temp/
+js/dojo-release/
+js/dojo-release*

@@ -49,8 +49,8 @@ if(!isset($_SESSION['logged_in'])){
 		<div id="miMenu" data-dojo-type="dojox.mobile.View" data-dojo-props="selected: true">
 			<h1 data-dojo-type="dojox.mobile.Heading" >CLUB SIERRAMAR</h1>
 			<ul data-dojo-type="dojox.mobile.RoundRectList">
-				<li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="icon:'images/i-icon-3.png', rightText:'', href:'./reserva_pistas.php'">
-					Reserva de pistas
+				<li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="icon:'images/i-icon-3.png', rightText:'', href:'./reserva_pistas.php?id_pista=1'">
+					Reserva de padel (P1)
 				</li>
 			</ul>
 		</div>

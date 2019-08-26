@@ -107,8 +107,8 @@ if ($client->getAccessToken()) {
 					</div>
 					
 					<div class="col-xs-6 col-sm-6 col-md-6">
-						<!--<i class="fa fa-check"></i>-->
-						<!--<a href="register.php">Registrarse</a>-->
+						<i class="fa fa-check"></i>
+						<a href="register.php">Registrarse</a>
 					</div>
 				</div>
 			</div>

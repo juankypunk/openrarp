@@ -5,7 +5,7 @@ require("lib/CreaConexion.php");
 // Consultamos la BD
 $conexion->connect('openrarp') or die('Error al conectar con la BD');
 $query="SELECT id_pista AS pista,to_char(turno,'DD-MM-YYYY (HH24:MI)') AS turno 
-		FROM reserva WHERE id_pista=$id_pista AND user_id=$id_usuario";
+		FROM reserva WHERE id_pista=$id_pista AND user_id=$id_usuario AND turno > CURRENT_TIMESTAMP ORDER BY turno";
 //echo $query;
 $id_result=@$conexion->query($query) or die('Error al leer quien reserva');
 $num_filas=@$conexion->num_rows($id_result);

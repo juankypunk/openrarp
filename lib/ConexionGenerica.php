@@ -80,7 +80,7 @@ class ConexionGenerica {
 	 * Realiza una consulta o actualización en la BD.
 	 * No hace nada, debe ser redefinida por las clases que hereden de esta.
 	 */
-	function fetch_array($resultado) {
+	function fetch_array($resultado,$fila) {
 		echo "<h1>El método <i>query</i> no está " .
 		     "implementado en la clase <i>" . get_class($this) . "</i></h1>";
 		return FALSE;

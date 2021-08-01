@@ -7,12 +7,11 @@ require_once 'config.php';
 $user_obj = new Cl_User();
 
 /*******Google ******/
-/* 
 require_once 'Google/src/config.php';
+/*
 require_once 'Google/src/Google_Client.php';
 require_once 'Google/src/contrib/Google_PlusService.php';
 require_once 'Google/src/contrib/Google_Oauth2Service.php'; 
-
 $client = new Google_Client();
 //$client->setScopes(array('https://www.googleapis.com/auth/plus.login','https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/plus.me'));
 $client->setScopes(array('https://www.googleapis.com/auth/userinfo.email'));
@@ -47,7 +46,7 @@ if ($client->getAccessToken()) {
 		try {
 			$data = $user_obj->login( $_POST );
 			if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']){
-				header('Location: movil/index.php');
+				header('Location: home.php');
 			}
 		} catch (Exception $e) {
 			$error = $e->getMessage();
@@ -55,7 +54,7 @@ if ($client->getAccessToken()) {
 	}
 	//print_r($_SESSION);
 	if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']){
-		header('Location: movil/index.php');
+		header('Location: home.php');
 	}
 ?>
 <!DOCTYPE html>
@@ -94,10 +93,10 @@ if ($client->getAccessToken()) {
 				<input name="email" id="email" type="email" class="form-control" placeholder="Email" autofocus> 
 				<input name="password" id="password" type="password" class="form-control" placeholder="Clave"> 
 				<button class="btn btn-block bt-login" type="submit" id="submit_btn" data-loading-text="Autentificando...">Entrar</button>
-<!--
-				<h4 class="text-center login-txt-center">Alternativamente...</h4>
+<!--				<h4 class="text-center login-txt-center">Alternativamente...</h4>
 				<a class="btn btn-default google" href="<?php //echo $client->createAuthUrl();?>"> <i class="fa fa-google-plus modal-icons"></i>Entrar con Google</a>  
--->			</form>
+-->
+			</form>
 			<div class="form-footer">
 				<div class="row">
 					<div class="col-xs-6 col-sm-6 col-md-6">

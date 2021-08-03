@@ -7,8 +7,8 @@ require_once 'config.php';
 $user_obj = new Cl_User();
 
 /*******Google ******/
-require_once 'Google/src/config.php';
 /*
+require_once 'Google/src/config.php';
 require_once 'Google/src/Google_Client.php';
 require_once 'Google/src/contrib/Google_PlusService.php';
 require_once 'Google/src/contrib/Google_Oauth2Service.php'; 
@@ -38,7 +38,7 @@ if ($client->getAccessToken()) {
 		$error = $e->getMessage();
 	}
 } 
- */
+*/
 /*******Google ******/
 ?>
 <?php 

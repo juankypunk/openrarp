@@ -1,5 +1,6 @@
 <?
 /*
+ * EPVNET: Software de Gestión para Centros Penitenciarios
  * Copyright (c) 2004 Juan Carlos Moral
  *
  * This program is free software; you can redistribute it and/or modify 
@@ -35,7 +36,7 @@ class ConexionGenerica {
      * Conecta con el servidor, identificándose como usuario y clave.
 	 * No hace nada, ya que será redefinida por las clases que hereden de esta.
 	 */
-	 function connect($servidor, $usuario, $clave) {
+	 function connect($dbname) {
 		echo "<h1>El método <i>connect</i> no está " .
 		     "implementado en la clase <i>" . get_class($this) . "</i></h1>";
 		return FALSE;

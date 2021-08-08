@@ -1,0 +1,19 @@
+<html>
+<header>
+	<title>
+		Prueba
+	</title>
+</header
+<body>
+	<h1> Prueba de Geolocalización</h1>
+
+	<script>
+		function mostrarPosicion(position) {
+				console.log("Latitud: " + position.coords.latitude);
+				console.log("Longitud: " + position.coords.longitude);
+				alert(position.coords.latitude+', '+position.coords.longitude);
+		}
+		navigator.geolocation.getCurrentPosition(mostrarPosicion);
+	</script>
+</body>
+</html>

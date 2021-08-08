@@ -1,6 +1,7 @@
 <?
 /*
- * Copyright (c) 2004 Juan Carlos Moral
+ * OPENRARP: Software de Gestión para Areas Residenciales
+ * Copyright (c) 2021 Juan Carlos Moral
  *
  * This program is free software; you can redistribute it and/or modify 
  * it under the terms of the GNU General Public License as published 
@@ -35,7 +36,7 @@ class ConexionPostgreSQL extends ConexionGenerica {
 	 */
 	function connect($bd) {
 //		return $this->link = pg_connect("localhost","5432","", $bd);
-		return $this->link = pg_connect("host=localhost dbname=$bd user=postgres");
+		return $this->link = pg_connect("host=localhost port=5432 dbname=$bd user=postgres");
 	}
 
 	/**
@@ -52,7 +53,7 @@ class ConexionPostgreSQL extends ConexionGenerica {
 	 * Realiza una consulta o actualización en la BD.
 	 */
 	function query($query) {
-		return pg_exec($this->link, $query);
+		return pg_query($this->link, $query);
 	}
 	
 	function queryExec($query){

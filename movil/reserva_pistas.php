@@ -5,6 +5,7 @@ if(!isset($_SESSION['logged_in'])){
 	header('Location: index.php');
 }
 $id_pista=$_REQUEST['id_pista'];
+//$id_pista=1;
 $id_usuario=$_SESSION['user_id'];
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">

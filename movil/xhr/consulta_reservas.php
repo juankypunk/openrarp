@@ -9,6 +9,9 @@ require("lib/CreaConexion.php");
 
 $conexion->connect('openrarp') or die('Error al conectar con la BD');
 $query="SELECT consulta_reservas_fecha('$fecha',$id_pista) AS turno";
+//$query="SELECT hora_turno,user_id,id_pista FROM vista_reservas WHERE turno::date='$fecha' ORDER BY turno";
+
+
 //echo $query;
 $id_result=@$conexion->query($query);
 $num_filas=@$conexion->num_rows($id_result);
@@ -18,9 +21,13 @@ while ($i<$num_filas){
 	$fila=@$conexion->fetch_array($id_result,$i);
 	$cadena=substr($fila[0],1,-1);
 	//echo "$cadena <br/>";
-	list($reservadopor,$hora_turno,$turno)=explode(',',$cadena);
+	list($turno,$reservadopor,$pista)=explode(',',$cadena);
+	$hora_turno=substr($turno,11,6);
+	//echo "$hora_turno <br/>";
 	//$ocupado=json_encode($ocupado);
-	if($reservadopor=='0'){
+	//$reservadopor=$fila['user_id'];
+	//$hora_turno=$fila['hora_turno'];
+	if(!$reservadopor){
 		$icon="images/i-icon-2.png";
 		$rightText="RESERVAR";
 	}elseif($reservadopor==$id_usuario){

@@ -2,31 +2,65 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.5.13
--- Dumped by pg_dump version 9.5.13
+-- Dumped from database version 12.7 (Ubuntu 12.7-0ubuntu0.20.04.1)
+-- Dumped by pg_dump version 12.7 (Ubuntu 12.7-0ubuntu0.20.04.1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
+SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
---
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
---
+SET default_tablespace = '';
 
-CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
-
+SET default_table_access_method = heap;
 
 --
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+-- Name: reserva; Type: TABLE; Schema: public; Owner: postgres
 --
 
-COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+CREATE TABLE public.reserva (
+    turno timestamp with time zone NOT NULL,
+    user_id integer,
+    id_pista integer NOT NULL
+);
 
+
+ALTER TABLE public.reserva OWNER TO postgres;
+
+--
+-- Name: consulta_reservas_fecha(timestamp with time zone, integer); Type: FUNCTION; Schema: public; Owner: postgres
+--
+
+CREATE FUNCTION public.consulta_reservas_fecha(timestamp with time zone, integer) RETURNS SETOF public.reserva
+    LANGUAGE plpgsql
+    AS $_$
+DECLARE
+	v_fecha ALIAS FOR $1;
+	v_id_pista ALIAS FOR $2;
+	v_reserva reserva%ROWTYPE;
+
+BEGIN
+--select * from generate_series('8-8-2021 00:00','8-8-2021 23:00','1 hour'::interval) AS s(a) left join reserva r on r.turno=s.a;
+	FOR v_reserva IN
+ 		SELECT s.turno,r.user_id, r.id_pista
+   		FROM generate_series(v_fecha,v_fecha+'24 hour','1 hour'::interval) AS s(turno) 
+			LEFT JOIN reserva r ON (r.turno=s.turno AND r.id_pista=v_id_pista)
+		ORDER BY s.turno
+	LOOP
+		RETURN NEXT v_reserva;
+	END LOOP;
+	RETURN;
+END;
+$_$;
+
+
+ALTER FUNCTION public.consulta_reservas_fecha(timestamp with time zone, integer) OWNER TO postgres;
 
 --
 -- Name: domicilia_agua_parcela(character); Type: FUNCTION; Schema: public; Owner: postgres
@@ -157,10 +191,6 @@ CREATE SEQUENCE public.num_recibo_agua
 
 
 ALTER TABLE public.num_recibo_agua OWNER TO postgres;
-
-SET default_tablespace = '';
-
-SET default_with_oids = false;
 
 --
 -- Name: agua; Type: TABLE; Schema: public; Owner: postgres
@@ -473,7 +503,7 @@ CREATE TABLE public.users (
     user_id integer DEFAULT nextval('public.user_seq'::regclass) NOT NULL,
     name character varying(50) NOT NULL,
     email character varying(60) NOT NULL,
-    password character varying(60),
+    password character varying(60) NOT NULL,
     social_id character varying(100),
     picture character varying(250),
     created timestamp without time zone DEFAULT now()
@@ -531,7 +561,6 @@ CREATE VIEW public.vista_socios_titulares AS
 
 ALTER TABLE public.vista_socios_titulares OWNER TO postgres;
 
-
 --
 -- Name: num_recibo_agua; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -554,8 +583,9 @@ COPY public.users (user_id, name, email, password, social_id, picture, created) 
 \.
 
 
+
 --
--- Name: cuota_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: cuotas cuota_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.cuotas
@@ -563,7 +593,7 @@ ALTER TABLE ONLY public.cuotas
 
 
 --
--- Name: fac_agua_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: agua fac_agua_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.agua
@@ -571,7 +601,15 @@ ALTER TABLE ONLY public.agua
 
 
 --
--- Name: riego_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: reserva reserva_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.reserva
+    ADD CONSTRAINT reserva_pk PRIMARY KEY (turno, id_pista);
+
+
+--
+-- Name: riego riego_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.riego
@@ -579,7 +617,7 @@ ALTER TABLE ONLY public.riego
 
 
 --
--- Name: ruta_lectura_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: ruta_lectura ruta_lectura_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.ruta_lectura
@@ -587,7 +625,7 @@ ALTER TABLE ONLY public.ruta_lectura
 
 
 --
--- Name: socios_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: socios socios_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.socios
@@ -595,7 +633,7 @@ ALTER TABLE ONLY public.socios
 
 
 --
--- Name: ubicacion_riego_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: contadores_riego ubicacion_riego_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.contadores_riego
@@ -603,7 +641,7 @@ ALTER TABLE ONLY public.contadores_riego
 
 
 --
--- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.users
@@ -611,7 +649,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- Name: agua_socios_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: agua agua_socios_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.agua
@@ -619,7 +657,7 @@ ALTER TABLE ONLY public.agua
 
 
 --
--- Name: cuota_socios_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: cuotas cuota_socios_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.cuotas
@@ -627,21 +665,11 @@ ALTER TABLE ONLY public.cuotas
 
 
 --
--- Name: riego_contadores_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: riego riego_contadores_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.riego
     ADD CONSTRAINT riego_contadores_fk FOREIGN KEY (id_contador) REFERENCES public.contadores_riego(id_contador) ON UPDATE CASCADE ON DELETE RESTRICT;
-
-
---
--- Name: SCHEMA public; Type: ACL; Schema: -; Owner: postgres
---
-
-REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM postgres;
-GRANT ALL ON SCHEMA public TO postgres;
-GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
 --

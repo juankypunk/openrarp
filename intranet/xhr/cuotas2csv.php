@@ -38,7 +38,7 @@ while ($i < $num_filas){
 	$fecha=$fila['fecha'];
 	$cuota=$fila['cuota'];
 	$domiciliado=$fila['domiciliado'];
-	$cuotas .= "$id_parcela,$titular,$fecha,$cuota,$domiciliado"."\r\n";
+	$cuotas .= "$id_parcela;$titular;$fecha;$cuota;$domiciliado"."\r\n";
 $i++;
 }
 $contenido=$cabecera.$cuotas;

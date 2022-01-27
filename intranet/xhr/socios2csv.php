@@ -4,14 +4,14 @@ require("lib/CreaConexion.php");
 // Consultamos la BD
 $conexion->connect('openrarp') or die('Error al conectar con esta BD');
 
-$query = "SELECT id_parcela,titular,titular2,titular_cc_agua,cc_agua,titular_cc_cuota,cc_cuota,email,email2,domicilio,localidad,telef1,telef2,telef3,cp,
+$query = "SELECT id_parcela,titular,titular2,titular_cc_agua,iban_agua,titular_cc_cuota,iban_cuota,email,email2,domicilio,localidad,telef1,telef2,telef3,cp,
 		replace(notas,E'\n',' ') AS notas
 		FROM socios ORDER BY id_parcela";
 //echo "$query";
 $id_result=@$conexion->query($query) or die('Error al hacer la query');
 $num_filas=@$conexion->num_rows($id_result);
 $i=0;
-$cabecera='id_parcela,titular,titular2,titular_cc_agua,cc_agua,titular_cc_cuota,cc_cuota,email,email2,domicilio,localidad,telef1,telef2,telef3,cp,notas'."\r\n";
+$cabecera='id_parcela|titular|titular2|titular_cc_agua|cc_agua|titular_cc_cuota|cc_cuota|email|email2|domicilio|localidad|telef1|telef2|telef3|cp|notas'."\r\n";
 //echo $cabecera;
 while ($i < $num_filas){
 	$fila=@$conexion->fetch_array($id_result,$i);
@@ -19,9 +19,9 @@ while ($i < $num_filas){
 	$titular=$fila['titular'];
 	$titular2=$fila['titular2'];
 	$titular_cc_agua=$fila['titular_cc_agua'];
-	$cc_agua=$fila['cc_agua'];
+	$cc_agua=$fila['iban_agua'];
 	$titular_cc_cuota=$fila['titular_cc_cuota'];
-	$cc_cuota=$fila['cc_cuota'];
+	$cc_cuota=$fila['iban_cuota'];
 	$email=$fila['email'];
 	$email2=$fila['email2'];
 	$domicilio=$fila['domicilio'];
@@ -31,7 +31,7 @@ while ($i < $num_filas){
 	$telef3=$fila['telef3'];
 	$cp=$fila['cp'];
 	$notas=$fila['notas'];
-	$socios .= "'$id_parcela','$titular','$titular2','$titular_cc_agua','$cc_agua','$titular_cc_cuota','$cc_cuota','$email','$email2','$domicilio','$localidad','$telef1','$telef2','$telef3','$cp','$notas'"."\r\n";
+	$socios .= "$id_parcela|$titular|$titular2|$titular_cc_agua|$cc_agua|$titular_cc_cuota|$cc_cuota|$email|$email2|$domicilio|$localidad|$telef1|$telef2|$telef3|$cp|$notas"."\r\n";
 $i++;
 }
 $contenido=$cabecera.$socios;

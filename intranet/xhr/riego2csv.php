@@ -27,7 +27,7 @@ $query = "SELECT r.id_contador,r.averiado,c.lugar,r.fecha,r.l1,r.l2,r.m3
 $id_result=@$conexion->query($query) or die('Error al hacer la query');
 $num_filas=@$conexion->num_rows($id_result);
 $i=0;
-$cabecera='id_contador,lugar,fecha,l1,l2,m3'."\r\n";
+$cabecera='id_contador;lugar;fecha;l1;l2;m3'."\r\n";
 //echo $cabecera;
 while ($i < $num_filas){
 	$fila=@$conexion->fetch_array($id_result,$i);
@@ -37,7 +37,7 @@ while ($i < $num_filas){
 	$l2=$fila['l2'];
 	$m3=$fila['m3'];
 	$fecha=$fila['fecha'];
-	$riego .= "$id_contador,$lugar,$fecha,$l1,$l2,$m3"."\r\n";
+	$riego .= "$id_contador;$lugar;$fecha;$l1;$l2;$m3"."\r\n";
 $i++;
 }
 $contenido=$cabecera.$riego;
